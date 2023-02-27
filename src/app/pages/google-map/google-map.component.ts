@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class GoogleMapComponent {
   lat = 51.678418;
   lng = 7.809007;
-  zoom = 12;
+  zoom = 8;
 
   onCenterChanged(event:any) {
   }

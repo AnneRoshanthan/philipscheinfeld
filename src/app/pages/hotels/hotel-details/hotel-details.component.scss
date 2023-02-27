@@ -18,6 +18,7 @@
     height: 5px !important;
     width: 100%;
 }
+
 .right-section{
     background-color: #f4f4f4;
    
@@ -35,4 +36,10 @@
     height: 500px;
     object-fit: cover;
     object-position: center;
+}
+@media (min-width: 1024px) {
+    .pos-sticky{
+        position: sticky;
+        top: 100px;
+    }
 }
