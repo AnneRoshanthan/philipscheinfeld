@@ -1,0 +1,7 @@
+<section class="mt-3 d-flex justify-content-center display-sticky-top">
+    <google-map
+  [center]="{ lat: lat, lng: lng }"
+  [zoom]="zoom"
+  (mapClick)="onCenterChanged($event)"
+></google-map>
+</section>

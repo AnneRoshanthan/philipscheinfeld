@@ -1,0 +1,38 @@
+.left_hr{
+    width: 100px;
+    height: 5px !important;
+    color: #c72a2a;
+}
+
+.left-section {
+    &__active{
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 5px;
+        background-color: #c72a2a;
+    }
+}
+
+.center_hr{
+    height: 5px !important;
+    width: 100%;
+}
+.right-section{
+    background-color: #f4f4f4;
+   
+    &__img{
+        background-color: #000;
+        margin-top: 10px;
+        width: 80px;
+        height: 80px;
+    }
+}
+.testForm__btn{
+    border-radius: 0px;
+}
+.owl-carousel-img{
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}

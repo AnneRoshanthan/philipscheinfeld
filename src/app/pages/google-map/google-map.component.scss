@@ -1,0 +1,11 @@
+.display-sticky-top{
+    position: sticky;
+    top: 100px;
+}
+
+@media (max-width: 992px) {
+    .display-sticky-top {
+        display: none !important;
+       
+    }
+}

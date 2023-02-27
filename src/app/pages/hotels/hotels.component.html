@@ -1,0 +1,71 @@
+
+<div class="container-fluid hotel ">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="d-flex justify-content-between">
+            <div class="hotel__dropdown">
+
+                <div class="dropdown mt-3">
+                    
+                    <button class="btn btn-light dropdown-toggle"   type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown button
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" (click)="dropDown('maxPrice',60000)">height Price</a></li>
+                       <li><a class="dropdown-item" (click)="dropDown('minPrice',20000)">Lowest Price</a></li>
+                    </ul>
+                  </div>
+            </div>
+            <div class=" text-muted mt-3">
+                {{total}} Resultes
+            </div>
+        </div>
+        <section>
+            <div class="container">
+                <div class="row" *ngIf="hotels.length>0; else noHotels">
+                    <div class="col-12 col-lg-6 mb-3" *ngFor="let hotel of hotels | paginate: { itemsPerPage: 10, currentPage: pageNumber, totalItems: total } let i= index">
+                        <a routerLink="{{hotel.mlsNumber}}" class="card_a">
+                        <div class="card m-3">
+                            <img *ngIf="hotel.images[0]" src="https://cdn.repliers.io/{{hotel.images[0]}}" class="card-img-top hotel-img" alt="...">
+                            <img *ngIf="!hotel.images[0]" src="https://cdn.pixabay.com/photo/2016/11/18/22/21/restaurant-1837150__480.jpg" class="card-img-top hotel-img" alt="...">
+                            <div class="card-body">
+                                <h4>{{hotel.originalPrice | currency}}</h4>
+                                <span>{{hotel.details.numBedrooms}} beds</span>
+                                <span class="card__vertical__line"></span>
+                                <span>{{hotel.details.numBathrooms}} Baths</span>
+                                <p class="card__address">
+                                    {{hotel.address.streetNumber}} {{hotel.address.majorIntersection}} {{hotel.address.city}} {{hotel.address.zip}}
+                                </p>
+        
+                                <div>
+                                    <span class="card-body__round"></span> 
+                                    <span class="card-body__active">Active</span>
+                                    <span class="card__vertical__line"></span>
+                                    <span class="card-body__active ms-2">{{hotel.mlsNumber}}</span>
+        
+                                </div>
+                            </div>
+                          </div>
+                        </a>
+                    </div>
+                </div>
+        
+<div class="d-flex justify-content-center">
+    <!--  -->
+    <pagination-controls *ngIf="total>10" previousLabel="&lt;"  nextLabel="&gt;" class="pagination_temp"
+        (pageChange)="getHotels($event)"></pagination-controls>
+</div>
+
+                <ng-template #noHotels>
+                    <h2>No hotels are available</h2>
+                  </ng-template>
+            </div>
+        </section>
+      </div>
+      <div class="col-lg-6">
+        <app-google-map></app-google-map>
+      </div>
+    </div>
+  </div>
+
+

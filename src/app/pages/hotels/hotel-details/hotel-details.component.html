@@ -1,0 +1,329 @@
+<section>
+
+    <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let slide of hotelDetails?.images">
+          <ng-template carouselSlide>
+            <img [src]="'https://cdn.repliers.io/'+slide" class="owl-carousel-img">
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="card__address">
+                            {{hotelDetails?.address.streetNumber}} {{hotelDetails?.address.majorIntersection}}
+                        </p>
+                        <p>{{hotelDetails?.address.city}} {{hotelDetails?.address.zip}}</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1>{{ hotelDetails?.originalPrice | currency}}</h1>
+                    </div>
+                </div>
+                <hr class="left_hr">
+                <div class="left-section row">
+                    <div class="col-lg-4">
+                        <div class="col-12 mb-lg-4 mb-4">
+                            <span class="left-section__active"></span> Active - For Sale
+                        </div>
+                        <div class="row ">
+                        <div class="col-4 col-md-4 col-lg-12 mb-lg-4">
+                            <i class="fa-solid fa-bed"></i> {{hotelDetails?.details.numBedrooms == null ? 0:hotelDetails?.details.numBedrooms}} Beds
+                        </div>
+                        <div class="col-4 col-md-4 col-lg-12 mb-lg-4">
+                            <i class="fa-solid fa-bath"></i> {{hotelDetails?.details.numBathrooms == null ? 0 : hotelDetails?.details.numBathrooms}} Baths
+                        </div>
+                        <div class="col-4 col-md-4 col-lg-12 mb-lg-4 mb-4">
+                            <i class="fa-solid fa-calendar"></i>  {{hotelDetails?.details.yearBuilt !== null ? 0:hotelDetails?.details.yearBuilt | date:'yyy'}} Built
+                        </div>
+</div>
+                    </div>
+                    <div class="col-lg-8">
+                        <p>
+                            {{hotelDetails?.details.description}}
+                        </p>
+                        <div class="row text-muted">
+                            <div class="col-4">
+                                <h6>MLS® ID:</h6>{{hotelDetails?.mlsNumber}}
+                            </div>
+                            <div class="col-4">
+                                <h6>Listed</h6>{{hotelDetails?.timestamps.listingEntryDate | date:'dd/mm/yy'}}
+                            </div>
+                            <div class="col-4">
+
+                                <h6>Updated</h6>
+                                <div class="col-4">{{hotelDetails?.timestamps.listingUpdated | date:'dd/mm/yy'}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="col-lg-4 ">
+                <div class="container right-section">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-6 ">
+                                    <img src="../../../../assets/philipslogo.jpg" alt="" srcset=""
+                                        class="right-section__img">
+                                </div>
+                                <div class="col-lg-6 mt-lg-3">
+                                    <h6>Compass</h6>
+                                    <hr>
+                                    <h6>Philip Scheinfeld</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-12 mt-md-3">
+                            <h6>Mobile: (917) 446-0523</h6>
+                            <h6>Email: ann@compass.com</h6>
+                        </div>
+
+                    </div>
+                    <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+                    <div class="row ">
+                        <div class="col-md-6 col-lg-12">
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" formControlName="email" placeholder="your email*">
+                                <div *ngIf="(f['email'].touched || f['email'].dirty ||submited) && f['email'].errors"
+                                    class="text-danger">
+                                    <small *ngIf="f['email'].errors['required']">This value is equired</small>
+                                    <small *ngIf="f['email'].errors['email']">Enter a valid email</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-12">
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="exampleInputname"
+                                    aria-describedby="emailHelp" formControlName="name"  placeholder="your full name*">
+                                <div *ngIf="(f['name'].touched || f['name'].dirty || submited) && f['name'].errors ">
+                                    <small *ngIf="f['name'].errors['required']" class="text-danger">This value is
+                                        equired</small>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    formControlName="phone" placeholder="Phone number">
+                                <div *ngIf="(f['phone'].touched || f['phone'].dirty ||submited) && f['phone'].errors"
+                                    class="text-danger">
+                                    <small *ngIf="f['phone'].errors['required']">This value is equired</small>
+                                    <small *ngIf="f['phone'].errors['pattern']">Enter a valid phone number</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <textarea  rows="5" type="email" class="form-control" id="exampleInputname"
+                                    aria-describedby="emailHelp" formControlName="description" placeholder=""></textarea>
+                                <div *ngIf="(f['description'].touched || f['description'].dirty || submited) && f['description'].errors ">
+                                    <small *ngIf="f['description'].errors['required']" class="text-danger">This value is
+                                        equired</small>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark testForm__btn">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-8">
+                <hr class="center_hr">
+
+                <div>
+                    <h2 class="mb-3">Interior Features</h2>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Kitchen Appliances</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">none</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Total Bedrooms</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.details.numBedrooms == null ? 0 :hotelDetails?.details.numBedrooms}}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Full Bathrooms</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.details.numBathroomsPlus == null ? 0 :
+                                hotelDetails?.details.numBathroomsPlus}}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Half Bathrooms</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.details.numBathroomsHalf == null ? 0 :
+                                hotelDetails?.details.numBathroomsHalf}}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Interior Features</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">0</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Cooling</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">{{hotelDetails?.details.airConditioning == null ?
+                                hotelDetails?.details.airConditioning:'No Cooling System'}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <hr class="center_hr">
+
+                <div>
+                    <h2 class="mb-3">Exterior/Building Features</h2>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Lot Size</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.lot.size == null ? 0 : hotelDetails?.lot.size }}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Exterior Features</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.details.exteriorConstruction1}}
+                                {{','+hotelDetails?.details.exteriorConstruction2}}</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <hr class="center_hr">
+
+                <div>
+                    <h2 class="mb-3">Other Property Details</h2>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Taxes</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.taxes.annualAmount}}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Tax Frequency</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">0</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Association Fee</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">0</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Association Amenities</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">none</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Garage</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.details.garage ==null ? 'none' : hotelDetails?.details.garage}}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Parking</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.details.parkCostMonthly== null ? 'none' : hotelDetails?.details.parkCostMonthly }}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">View</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.details.viewType == null ? 'none' :hotelDetails?.details.viewType}}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">County</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.address.country}}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Pool</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">{{hotelDetails?.details.swimmingPool == null ? 'No' : 'Yes' }}</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Pool Description</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">none</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Total Stories</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">none</h6>
+                        </div>
+                    </div>
+                    <div class="text-muted row">
+                        <div class="col-lg-6">
+                            <h6 class="mb-lg-3">Buyer Agency Compensation</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="mb-4 mb-lg-3">none</h6>
+                        </div>
+                    </div>
+                </div>
+                <hr class="center_hr">
+
+                <app-footer></app-footer>
+            </div>
+
+        </div>
+    </div>
+
+</section>
