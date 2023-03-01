@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+section{
+    font-family: sans-serif;
+}
+.top-footer , .bottom-footer{
+    background-color: #fff;
+   
+    font-size: 10.66px;
+    margin: 2rem 0;
+    padding: 2rem 2rem;
+    
+}
+
+.bottom-footer__img{
+    img{
+        max-width: 203px;
+        max-height: 45px;
+        width: 100%;
+    }
+}

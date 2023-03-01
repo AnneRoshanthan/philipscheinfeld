@@ -12,7 +12,7 @@ export class HotelsComponent implements OnInit{
   hotels:Array<any> = [];
   prefix_url:string = 'https://cdn.repliers.io/'
   pageNumber: number = 1;
-  resultsPerPage:number = 10;
+  resultsPerPage:number = 12;
   total:number = 0;
   selectedTeam!:string;
 
@@ -78,12 +78,9 @@ this._tiggerService.getSearch().subscribe((data:any)=>{
             this.total = res.numPages*10
             this.hotels = res.listings
             }
-            
-            
           },
           error:(err:HttpErrorResponse)=>{
             console.error(err);
-            
           }
         })
       }

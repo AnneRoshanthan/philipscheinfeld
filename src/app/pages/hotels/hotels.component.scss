@@ -1,7 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+
 .hotel {
     background-color: #f4f4f4;
 
+    &__font {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        .text-muted{
+            margin-top: 2rem !important;
+        }
+    }
+
     &__dropdown {
+
+        button {
+            padding: 14px;
+            min-width: 160px;
+            transition: 200ms;
+            background-color: #fff;
+            border-radius: 0px;
+        }
+
         button:hover {
             background-color: #000;
             color: #ddd;
@@ -9,7 +28,7 @@
         }
 
         .dropdown-menu {
-            transition: all .2s ease-out;
+            transition: all .5s ease-out;
         }
 
         .dropdown-menu a:hover {
@@ -37,7 +56,7 @@
     .card__address {
         padding: 7px 0 0;
         font-size: 13px;
-        max-width: 256px;
+        max-width: 302px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -54,14 +73,44 @@
     }
 
     &__active {
+        font-family:karla;
         font-size: 13px;
         margin-right: 5px;
+    }
+
+    &__img {
+        max-width: 75px;
+        max-height: 40px;
     }
 }
 
 .card_a {
+    position: relative;
     color: #000;
     text-decoration: none;
+
+    .card {
+        // width: 19rem;
+        width: 50%;
+        min-width: 340px;
+        max-width: 390px
+    }
+
+    i {
+        position: absolute;
+        right: 0;
+        margin: 10px;
+        font-size: 22px;
+        color: #000;
+    }
+}
+
+.hotel-listing {
+    &__right {
+        span {
+            font-size: 12px;
+        }
+    }
 }
 
 @media (max-width: 992px) {
@@ -75,3 +124,10 @@
         }
     }
 }
+@media (min-width: 992px ) and (max-width:1200px) {
+    .card{
+     min-width: unset !important;
+     max-width: unset !important;
+     width: 95% !important;
+    }
+ }

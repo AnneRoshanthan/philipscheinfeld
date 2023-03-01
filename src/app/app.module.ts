@@ -14,9 +14,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { HotelInterceptor } from './_helpers/_interceptor/hotel.interceptor';
-// import { AgmCoreModule } from '@agm/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HotelFooterComponent } from './components/layout/hotel-footer/hotel-footer.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HotelsComponent,
     GoogleMapComponent,
     HotelDetailsComponent,
+    HotelFooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,10 +38,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BrowserAnimationsModule,
     GoogleMapsModule,
     NgSelectModule,
-    FormsModule
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'taecHelmCkhO5q9QdKZYFmNcCh6YeQ'
-    // })
+    FormsModule,
+    MatAutocompleteModule
   ],
   providers: [
     {

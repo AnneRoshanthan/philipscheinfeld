@@ -11,10 +11,6 @@ URL:string = "https://sandbox.repliers.io/listings"
     private http:HttpClient
   ) { }
 
-  // getBrand():Observable<Brand[]>{
-  //   return this.http.get<Brand[]>(`${this.URL}/brand/brand`)
-  // }
-
   getHotels(resultsPerPage:number,pageNumber:number):Observable<any>{
     return this.http.get<any[]>(`${this.URL}?resultsPerPage=${resultsPerPage}&pageNum=${pageNumber}`)
   }

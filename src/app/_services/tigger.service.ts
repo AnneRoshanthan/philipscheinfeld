@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
@@ -5,8 +6,11 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class TiggerService {
+  URL:string = "https://sandbox.repliers.io/listings"
 private search = new Subject()
-  constructor() { }
+  constructor(
+    private http:HttpClient
+  ) { }
 
   public getSearch():Observable<any>{
     return this.search.asObservable()
@@ -15,5 +19,8 @@ private search = new Subject()
   setSearchData(data:any){
     this.search.next(data)
   }
-  
+
+  autoComplete(searchQuery:any):Observable<any>{
+    return this.http.get<any[]>(`${this.URL}?area=${searchQuery}`)
+  }
 }
