@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat');
 section{
     font-family: sans-serif;
 }
+.top-footer{
+    p{
+        margin: 11px 0;
+        font-family: "Montserrat", sans-serif;
+    }
+}
 .top-footer , .bottom-footer{
     background-color: #fff;
-   
+    font-family: "Montserrat", sans-serif;
     font-size: 10.66px;
     margin: 2rem 0;
     padding: 2rem 2rem;

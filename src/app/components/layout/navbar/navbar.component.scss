@@ -1,48 +1,190 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat');
-
-.nav{
+.nav {
     font-family: 'Montserrat', sans-serif;
     background-color: #000;
     font-size: 13px;
+    position: fixed;
+    top: 0;
+    height: 68px;
+    width: 100%;
 }
+
+// -----------------------------
 .navbar-brand {
     img {
-        margin: 0 0 0 25px;
-        width: 52px;
+        margin: 8px 0 8px 25px;
+        width: auto;
         height: 52px;
     }
+
 }
 
 .container-fluid {
-    height: 3.1rem;
-    overflow: hidden;
-    .nav-icon{
-      font-size: 20px;
-      padding: 16px 16px 16px 18px;
-      &:hover{
-           background-color: #333;
-           color: white;
-      }
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.nav-link {
+    font-size: 13px;
+    padding: 0 32px !important;
+    color: #FFF;
+    opacity: 0.85;
+    height: 68px;
+    display: flex;
+    align-items: center
+}
+
+.drop {
+    color: #000;
+    background-color: #fff;
+    font-size: 13px;
+    border-radius: 0px;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 30%)
+}
+
+.dropdown-item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0px 16px !important;
+    height: 68px;
+}
+
+.search-height {
+    height: 56px !important;
+    margin-top: 68px;
+
+    .search-field {
+        position: relative;
+        margin-top: 2px;
+        padding: 0px;
+        width: 480px;
+
+
     }
-    // .switch__container{
-    //     display: flex;
-    //     border-radius: 30px;
-    //     background-color: grey;
-    //     justify-content: space-between;
-    //     width: 140px;
-    //     height: 2.5rem;
-    //     padding: 6px ;
-    //     margin-top: auto;
-    //     margin-bottom: auto;
-    //     .sale{
-    //         border-radius: 30px;
-    //     background-color: white;
-    //     padding: 4px 6px;
-    //     display: flex;
-    //     align-items: center;
-    //     font-size: 12px;
-    //     }
-    // }
+
+    .search-field__border {
+        position: absolute;
+        top: 50px;
+        width: 0px;
+        height: 2px;
+        background-color: #000;
+        transition:  width 1s;
+    }
+
+    &:hover .search-field__border {
+        width: 100%;
+    }
+}
+
+::ng-deep .mat-mdc-option {
+    padding: 15px 30px;
+    color: #00000CCC;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+::ng-deep .cdk-overlay-pane {
+    top: 160px;
+    width: 50vw !important;
+    left: 0px !important;
+
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+}
+
+.sub-nav-right {
+    margin-left: 149px;
+}
+
+.fa-magnifying-glass {
+    line-height: 25px;
+    width: 24px;
+    height: 24px;
+    margin: 0px !important;
+    padding-left: 23px;
+}
+
+#basic-addon1 {
+    padding: 1px 40px 1px 60px;
+}
+
+.container-fluid__input {
+    margin-left: 22px;
+}
+
+.fa-solid {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+// .fa-solid:hover {
+//     background-color: #333;
+// }
+
+// --------------------------------
+.container-fluid {
+    height: 3.1rem;
+
+    // overflow: hidden;
+    .nav-icon {
+        font-size: 20px;
+        padding: 16px 16px 16px 18px;
+
+        &:hover {
+            background-color: #333;
+            color: white;
+        }
+    }
+
+    .switch__container {
+        display: flex;
+        border-radius: 30px;
+        background-color: #f3f3f3;
+        justify-content: space-between;
+        width: 150px;
+        height: 2.5rem;
+        // padding: 6px;
+        padding: 0 14px 0 17px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 16px;
+        position: relative;
+        cursor: pointer;
+
+        .sale {
+            padding: 4px 8px;
+            // margin-left: 7px;
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+            z-index: 2;
+        }
+
+        .active-type {
+            position: absolute;
+            border-radius: 30px;
+            background-color: white;
+            left: 0;
+            top: 0;
+            transition: all .8s;
+            width: 70px;
+            height: 2.4rem;
+            z-index: 1;
+
+        }
+    }
+
+    .selected {
+        right: 0;
+        left: unset !important;
+    }
+
+    .selected2 {
+        left: 0;
+        right: unset;
+    }
+
     .row {
         .col-lg-6 {
             padding: 0;
@@ -75,37 +217,94 @@
 
                 .container-fluid__vertical__line {
                     border-right: 1px solid #000;
-                    height: 100%;
+                    height: 54px;
                 }
             }
         }
     }
 }
-.mat-option{
-    word-wrap:break-word !important;
-    white-space:normal !important;
+
+.mat-option {
+    word-wrap: break-word !important;
+    white-space: normal !important;
     font-family: "Times New Roman", Times, serif;
     height: 900px !important;
-  }
+}
 
 .sub-nav {
     &__vertical__line {
         border-right: 1px solid #000;
-        height: 100%;
+        height: 56px;
     }
 }
+
+@media (min-width: 992px) {
+    .navbar {
+        height: 68px;
+
+    }
+}
+
 
 @media (max-width: 992px) {
     .container-fluid__vertical__line {
         display: none !important;
-       
+
     }
 }
 
 
-@media (max-width: 780px) {
-    .sub-nav__vertical__line {
+@media (max-width: 768px) {
+    .container-fluid {
+        height: inherit !important;
+
+    }
+
+    .navbar-brand {
+        padding: 0;
+    }
+
+    .nav {
+        padding: 0px !important;
+    }
+
+    .navbar-collapse {
+        background: #fff;
+        box-shadow: 1px 1px 5px rgb(0 0 0 / 30%);
+        transition: opacity 200ms;
+    }
+
+    .nav-link {
+        color: #000;
+    }
+
+    .switch__container {
         display: none !important;
-       
+    }
+
+    .sub-nav-right {
+        display: flex;
+        justify-content: end;
+        margin: 0;
+    }
+
+    .search-field {
+        width: unset !important;
+    }
+
+    .col-4 {
+        width: 27.33%;
+    }
+    
+
+    .fa-magnifying-glass {
+        padding-left: 0px !important;
+    }
+
+    .search-height {
+        .row {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
     }
 }

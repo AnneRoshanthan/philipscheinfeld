@@ -8,20 +8,20 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mx-5 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             NEW YORK
           </a>
-          <ul class="dropdown-menu ">
+          <ul class="dropdown-menu drop">
             <li><a class="dropdown-item" href="#">PROPERTIES FOR SALE</a></li>
             <li><a class="dropdown-item" href="#">PROPERTIES FOR RENT</a></li>
           </ul>
-        <li class="nav-item dropdown mx-lg-5">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             FLORIA
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu drop">
             <li><a class="dropdown-item" href="#">PROPERTIES FOR SALE</a></li>
             <li><a class="dropdown-item" href="#">PROPERTIES FOR RENT</a></li>
           </ul>
@@ -29,11 +29,11 @@
         <li class="nav-item">
           <a class="nav-link" href="#">CONTACT US</a>
         </li>
-        <li class="nav-item mx-lg-5">
+        <li class="nav-item">
           <a class="nav-link" href="#">(917) 446-0523</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">LOG IN</a>
+          <a class="nav-link nav-link-login" href="#">LOG IN</a>
         </li>
       </ul>
     </div>
@@ -41,12 +41,16 @@
 </nav>
 
 <div class="container-fluid search-height">
-  <div class="row">
-    <div class="col-8 col-sm-8 col-md-10 col-lg-6">
-      <div class="input-group mb-3">
+  <div class="row m-0 justify-content-between">
+    <div class="col-8 col-sm-8 col-md-10 col-lg-6 search-field">
+      <div class="search-field__border"></div>
+      <div class="input-group">
         <form class="d-flex container-fluid__search" role="search" (keyup)="onSubmit($event)">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass m-2 "></i></span>
-          <input class="form-control me-2" type="search" placeholder="Address , City, Neighborhood" aria-label="Search"
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fa-solid fa-magnifying-glass m-2 "></i>
+          </span>
+         
+          <input class="form-control container-fluid__input" type="search" placeholder="Address , City, Neighborhood" aria-label="Search"
             matInput [formControl]="search" [matAutocomplete]="auto">
           <div class="container-fluid__vertical__line"></div>
         </form>
@@ -57,21 +61,16 @@
           </mat-option>
         </mat-autocomplete>
       </div>
-
-
-      <!-- <div *ngFor="let option of options" class="auto-search text-light">
-                      <ul>
-                        <li>{{option}}</li>
-                      </ul>
-                    </div> -->
-
     </div>
     <div class="sub-nav-right col-4 col-sm-4 col-md-2 col-lg-6 d-flex justify-content-end">
+      <div class="switch__container" (click)="changeType()">
+        <div class="d-flex justify-content-between">
+          <span class="sale">For Sale</span>
+          <span class="sale">For Lease</span>
 
-      <!-- <div class="switch__container">
-            <div class="sale">For Sale</div>
-            <div class="sale">For Lease</div>
-          </div> -->
+        </div>
+        <div class="sale active-type" [ngClass]="{selected:type==true} "></div>
+          </div>
       <span class="sub-nav__vertical__line"></span>
 
       <i class="fa-solid fa-bars nav-icon"></i>

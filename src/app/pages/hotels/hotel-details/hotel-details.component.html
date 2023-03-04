@@ -8,18 +8,18 @@
         </ng-container>
       </owl-carousel-o>
 
-    <div class="container mt-2">
+    <div class="wrapper">
         <div class="row">
             <div class="col-lg-8">
                 <div class="row">
                     <div class="col-lg-6">
-                        <p class="card__address">
+                        <h1 class="card__address">
                             {{hotelDetails?.address.streetNumber}} {{hotelDetails?.address.majorIntersection}}
-                        </p>
+                        </h1>
                         <p>{{hotelDetails?.address.city}} {{hotelDetails?.address.zip}}</p>
                     </div>
                     <div class="col-lg-6">
-                        <h1>{{ hotelDetails?.originalPrice | currency}}</h1>
+                        <h1 class="card__price">{{ hotelDetails?.originalPrice | currency}}/mo</h1>
                     </div>
                 </div>
                 <hr class="left_hr">
@@ -40,7 +40,7 @@
                         </div>
 </div>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 hotel-details">
                         <p>
                             {{hotelDetails?.details.description}}
                         </p>

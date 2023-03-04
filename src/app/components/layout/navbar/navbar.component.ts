@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
   filterOptions !: Observable<any[]>;
   event: any;
   search = new FormControl('');
+  type:boolean = false;
   constructor(
     private _tiggerService: TiggerService
   ) { }
@@ -62,5 +63,8 @@ export class NavbarComponent implements OnInit {
     // })
   }
 
+  changeType(){
+this.type = !this.type
+  }
 
 }

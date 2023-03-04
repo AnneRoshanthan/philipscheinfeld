@@ -1,4 +1,23 @@
+
 span{
     display: block;
     margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.6667px;
+}
+.lspan{
+    margin: 16px 0 16px;
+    font-size: 14px !important;
+}
+
+.bottom-footer__img{
+    img{
+        max-width: 203px;
+        max-height: 45px;
+        width: 100%;
+        margin: 5px 0 16px 0;
+    }
+}
+.span-updated{
+    margin-bottom: 0px !important;
 }
